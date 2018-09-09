@@ -14,12 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btnAdd = findViewById(R.id.btnAdd);
         btnView = findViewById(R.id.btnView);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
-
     }
 
     public void addEmployee(View view) {
@@ -28,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewEmployee(View view) {
+        Intent intent = new Intent(this, GetAllEmployeeActivity.class);
+        startActivity(intent);
     }
 
     public void updateEmployee(View view) {
