@@ -14,16 +14,18 @@ import java.util.List;
 public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeViewHolder>{
 
     List<Employee> mEmployeeList;
+    EmployeeClickListener mListener;
 
-    public EmployeeListAdapter(List<Employee> employees){
+    public EmployeeListAdapter(List<Employee> employees, EmployeeClickListener listener){
         mEmployeeList = employees;
+        mListener = listener;
     }
     @NonNull
     @Override
     public EmployeeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_employee_list
                 ,parent , false);
-        EmployeeViewHolder employeeViewHolder = new EmployeeViewHolder(view);
+        EmployeeViewHolder employeeViewHolder = new EmployeeViewHolder(view,mListener);
         return employeeViewHolder;
     }
 

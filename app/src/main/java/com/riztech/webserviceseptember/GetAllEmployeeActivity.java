@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.riztech.webserviceseptember.adapter.EmployeeClickListener;
 import com.riztech.webserviceseptember.adapter.EmployeeListAdapter;
 import com.riztech.webserviceseptember.model.Employee;
 import com.riztech.webserviceseptember.service.ApiClient;
@@ -16,9 +17,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GetAllEmployeeActivity extends AppCompatActivity {
+public class GetAllEmployeeActivity extends AppCompatActivity implements EmployeeClickListener {
 
     RecyclerView rvEmployees;
+    EmployeeListAdapter employeeListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +36,26 @@ public class GetAllEmployeeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Employee>> call, Response<List<Employee>> response) {
                 List<Employee> employees = response.body();
-                EmployeeListAdapter employeeListAdapter = new EmployeeListAdapter(employees);
+                employeeListAdapter = new EmployeeListAdapter(employees, GetAllEmployeeActivity.this);
                 rvEmployees.setAdapter(employeeListAdapter);
             }
+            
 
             @Override
             public void onFailure(Call<List<Employee>> call, Throwable t) {
 
             }
         });
+
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
 
     }
 }
