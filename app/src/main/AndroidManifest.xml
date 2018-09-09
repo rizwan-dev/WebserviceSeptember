@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddEmployeeActivity" />
-        <activity android:name=".GetAllEmployeeActivity"></activity>
+        <activity android:name=".GetAllEmployeeActivity" />
+        <activity android:name=".UpdateEmployeeActivity"></activity>
     </application>
 
 </manifest>

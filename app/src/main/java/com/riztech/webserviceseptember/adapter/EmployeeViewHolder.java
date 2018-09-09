@@ -27,5 +27,13 @@ public class EmployeeViewHolder extends RecyclerView.ViewHolder {
                 mListener.onDeleteClick(position);
             }
         });
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = getAdapterPosition();
+                mListener.onItemClick(position);
+            }
+        });
     }
 }

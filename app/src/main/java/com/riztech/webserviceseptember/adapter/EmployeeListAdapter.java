@@ -41,4 +41,8 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeViewHolder
     public int getItemCount() {
         return mEmployeeList.size();
     }
+
+    public Employee getItemAtPosition(int position){
+        return  mEmployeeList.get(position);
+    }
 }

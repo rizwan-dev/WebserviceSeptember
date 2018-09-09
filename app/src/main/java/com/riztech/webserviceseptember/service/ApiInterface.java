@@ -10,6 +10,7 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
@@ -20,6 +21,12 @@ public interface ApiInterface {
     @GET("/myapp/api/employees")
     public Call<List<Employee>> getAllEmployee();
 
+    @GET("/myapp/api/employees/{id}")
+    public Call<Employee> getEmployee(@Path("id") int id);
+
     @DELETE("/myapp/api/employees/{id}")
     public Call<BaseResponse> deleteEmployee(@Path("id") int id);
+
+    @PUT("/myapp/api/employees/{id}")
+    public Call<BaseResponse> updateEmployee(@Path("id") int id,@Body Employee employee);
 }
