@@ -1,1 +1,13 @@
 Postman Collection Link : https://www.getpostman.com/collections/55f160dc10149d3bbbed
+
+
+Git Command for new project
+
+# Initialize git
+git init
+
+# add files to git
+git add . / git add --all
+
+#Local commit
+git commit -m "Your message"
